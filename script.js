@@ -2,7 +2,14 @@
 // " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" special characters
  
 var generateBtn = document.querySelector("#generate");
+
 var specChar = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', '^', '_', '`', '{', '|', '}', '~', '"'];
+
+var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 function chooseCriteria() {
   var pwLength = parseInt(prompt("Choose how many characters in your password"));
@@ -16,26 +23,31 @@ function chooseCriteria() {
     return;
   }
   if (pwLength > 128) {
-    alert("Password too long");
+    alert("Password too long (must be fewer than 129)");
     return;
   }
 
-  var pwSpecChar = confirm("Click OK to include special characters")
+  var pwSpecChar = confirm("Click OK to include special characters");
 
-// include upper/lower case, numeric
+  var pwUpperCase = confirm("Click OK to include upper case letters");
 
+  var pwLowerCase = confirm("Click OK to include loser case letters");
 
+  var pwNumbers = confirm("Click OK to include numbers");
 
-if (pwSpecChar === false) {
-  alert("Password must contain one character type")
+  if (pwSpecChar === false || pwUpperCase === false || pwLowerCase === false || pwNumbers === false) {
+    alert("Password must contain at least one character type")
 
-  return;
-}
- var pwOptions = {
+    return;
+    
+  }
+  var pwOptions = {
    pwLength: pwLength,
    pwSpecChar: pwSpecChar,
- };
-
+   pwUpperCase: pwUpperCase,
+   pwLowerCase: pwUpperCase,
+   pwNumbers: pwNumbers,
+  };
 
   return pwOptions;
 }
