@@ -11,62 +11,86 @@ var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 
 var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-function chooseCriteria() {
-  var pwLength = parseInt(prompt("Choose how many characters in your password"));
+var pwOptions = []
 
-  if (isNaN(pwLength) === true) {
+var pwLength = []
+
+function chooseCriteria() {
+  
+
+  var numChar = parseInt(prompt("Choose how many characters in your password"));
+
+  if (isNaN(numChar) === true) {
     alert("Please enter a number");
     return;
   }
-  if (pwLength < 8) {
+  if (numChar < 8) {
     alert("Enter number greater than 7");
     return;
   }
-  if (pwLength > 128) {
+  if (numChar > 128) {
     alert("Password too long (must be fewer than 129)");
     return;
   }
+  else {
+    pwLength.push(numChar);
+
+  }
 
   var pwSpecChar = confirm("Click OK to include special characters");
+    if (pwSpecChar === true) {
+      pwOptions.push(specChar.length);
+    }
 
   var pwUpperCase = confirm("Click OK to include upper case letters");
+    if (pwUpperCase === true) {
+      pwOptions.push(upperCase.length);
+    }
 
-  var pwLowerCase = confirm("Click OK to include loser case letters");
+  var pwLowerCase = confirm("Click OK to include lower case letters");
+    if (pwLowerCase === true) {
+      pwOptions.push(lowerCase.length);
+    }
 
   var pwNumbers = confirm("Click OK to include numbers");
+    if (pwNumbers === true) {
+      pwOptions.push(numeric.length);
+    }
 
-  if (pwSpecChar === false || pwUpperCase === false || pwLowerCase === false || pwNumbers === false) {
+  if (pwSpecChar === false &&
+     pwUpperCase === false &&
+      pwLowerCase === false &&
+       pwNumbers === false) {
     alert("Password must contain at least one character type")
 
     return;
     
   }
-  var pwOptions = {
-   pwLength: pwLength,
-   pwSpecChar: pwSpecChar,
-   pwUpperCase: pwUpperCase,
-   pwLowerCase: pwUpperCase,
-   pwNumbers: pwNumbers,
-  };
-
-  return pwOptions;
+  return pwLength;
 }
+chooseCriteria()
+console.log(pwOptions)
+console.log(pwLength)
+
+
+
+
 
 // include function to get random element from array
 // return random element
-function generatePassword() {
-  var options = chooseCriteria();
+// function generatePassword() {
+//   var options = chooseCriteria();
 
-  var pWord = [];
+//   var pWord = [];
 
-  var charType = [];
+//   var charType = [];
 
-  var charUsed = [];
+//   var charUsed = [];
 
-  if (options.pwSpecChar) {
-    charType = charType.concat(specChar);
-    charUsed.push(name of random function(specChar))
-  }
+//   if (options.pwSpecChar) {
+//     charType = charType.concat(specChar);
+//     charUsed.push(name of random function(specChar))
+//   }
 
 
 // loop over password length for (var = i;...)
@@ -75,32 +99,19 @@ function generatePassword() {
 // loop over charUsed for()
 // pword[i] = charUsed[i]
 // return pWord.join('') 
-}
+
 
 
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
 
-// prompt choose password length 8<=n<=128 characters
-
-// promt choose criteria upper/lower case letters
-
-// validate prompt
-
-// choose numeric, and/or special characters
-
-// validate prompt
-
-// generate password
-
-// diplay password
