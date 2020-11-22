@@ -80,9 +80,9 @@ function chooseCriteria() {
       
     }
 }
-function protoPassword () {for (var i = 0; i < numOfChar; i++) {
-  finalPassword += pwOptions [Math.floor(Math.random(i) * pwOptions.length)] 
-  console.log(finalPassword);
+function protoPassword () {
+  for (var i = 0; i < numOfChar; i++) {
+  finalPassword += pwOptions [Math.floor(Math.random(i) * pwOptions.length)]; 
   }
 }
 
