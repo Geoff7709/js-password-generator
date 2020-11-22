@@ -1,1 +1,4 @@
-# js-password-generator
+# JavaScript Based Password Generator
+----
+
+## Goals:
