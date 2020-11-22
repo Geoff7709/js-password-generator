@@ -1,5 +1,5 @@
-// Assignment Code
-// " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" special characters
+// Variables for the password
+// " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" special characters from accepted group
  
 var generateBtn = document.querySelector("#generate");
 
@@ -16,6 +16,8 @@ var pwOptions = []
 var finalPassword = ""
 
 var numOfChar = []
+
+// Choose password criteria
 
 function chooseCriteria() {
   
@@ -79,6 +81,9 @@ function chooseCriteria() {
       return;
     }
 }
+
+// Generate random string based on chosen criteria
+
 function protoPassword () {
   for (var i = 0; i < numOfChar; i++) {
     finalPassword += pwOptions [Math.floor(Math.random(i) * pwOptions.length)]; 
@@ -86,6 +91,7 @@ function protoPassword () {
 }
   
   // Write password to the #password input
+
 function writePassword() {
   chooseCriteria()
   protoPassword()
@@ -95,5 +101,6 @@ function writePassword() {
 }
 
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
 
