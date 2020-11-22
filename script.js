@@ -35,29 +35,42 @@ function chooseCriteria() {
     }
     else {
       numOfChar.push(numChar);
+      alert(numChar + " characters included.")
     }
   
   var pwSpecChar = confirm("Click OK to include special characters");
     if (pwSpecChar === true) {
       pwOptions = pwOptions.concat(specChar);
+      alert("Special characters included.");
+    } else {
+      alert("Special characters excluded.")
     }
   
   var pwUpperCase = confirm("Click OK to include upper case letters");
     if (pwUpperCase === true) {
      pwOptions = pwOptions.concat(upperCase);
+     alert("Upper case letters included.");
+    } else {
+      alert("Upper case letters excluded.")
     }
     
   var pwLowerCase = confirm("Click OK to include lower case letters");
     if (pwLowerCase === true) {
       pwOptions = pwOptions.concat(lowerCase);
+      alert("Lower case letters included.");
+    } else {
+      alert("Lower case letters excluded.")
     }
     
   var pwNumbers = confirm("Click OK to include numbers");
     if (pwNumbers === true) {
       pwOptions = pwOptions.concat(numeric);
+      alert("Numbers included.");
+    } else {
+      alert("Numbers excluded.")
     }
     
-  if (pwSpecChar === false &&
+    if (pwSpecChar === false &&
     pwUpperCase === false &&
     pwLowerCase === false &&
     pwNumbers === false) {
