@@ -28,7 +28,7 @@ function chooseCriteria() {
     }
     if (numChar < 8) {
         alert("Enter number greater than 7");
-    return;
+      return;
     }
     if (numChar > 128) {
       alert("Password too long (must be fewer than 129)");
@@ -70,7 +70,6 @@ function chooseCriteria() {
     } else {
       alert("Numbers excluded.")
     }
-    
     if (pwSpecChar === false &&
     pwUpperCase === false &&
     pwLowerCase === false &&
@@ -78,16 +77,15 @@ function chooseCriteria() {
       alert("Password must contain at least one character type")
       
       return;
-      
     }
 }
 function protoPassword () {
   for (var i = 0; i < numOfChar; i++) {
-  finalPassword += pwOptions [Math.floor(Math.random(i) * pwOptions.length)]; 
+    finalPassword += pwOptions [Math.floor(Math.random(i) * pwOptions.length)]; 
   }
 }
-
-// Write password to the #password input
+  
+  // Write password to the #password input
 function writePassword() {
   chooseCriteria()
   protoPassword()
