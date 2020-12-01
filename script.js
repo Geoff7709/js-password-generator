@@ -3,6 +3,8 @@
  
 var generateBtn = document.querySelector("#generate");
 
+var clearBtn = document.querySelector("#clear");
+
 var specChar = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', '^', '_', '`', '{', '|', '}', '~', '"'];
 
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -17,9 +19,11 @@ var finalPassword = ""
 
 var numOfChar = []
 
+
 // Choose password criteria
 
 function chooseCriteria() {
+   
   
   var numChar = parseInt(prompt("Choose how many characters in your password"));
   
@@ -72,11 +76,12 @@ function chooseCriteria() {
     } else {
       alert("Numbers excluded.")
     }
+    
     if (pwSpecChar === false &&
-    pwUpperCase === false &&
-    pwLowerCase === false &&
-    pwNumbers === false) {
-      alert("Password must contain at least one character type")
+      pwUpperCase === false &&
+      pwLowerCase === false &&
+      pwNumbers === false) {
+      alert("Password must contain at least one character type");
       
       return;
     }
@@ -91,16 +96,24 @@ function protoPassword () {
 }
   
   // Write password to the #password input
-
-function writePassword() {
+  // Function to clear the password text area
+  function eraseText() {
+   document.getElementById("password").value = '';
+   finalPassword = '';
+   numOfChar = []
+   pwOptions = []
+  }
+function writePassword() { 
   chooseCriteria()
   protoPassword()
   var password = finalPassword;
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  console.log(typeof finalPassword)
 }
 
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
 
+clearBtn.addEventListener("click", eraseText)
